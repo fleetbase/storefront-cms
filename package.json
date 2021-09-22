@@ -1,6 +1,6 @@
 {
   "name": "storefront-cms",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Small description for storefront-cms goes here",
   "repository": "",
@@ -18,15 +18,17 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
+    "start": "npx kill-port 4205 && ember serve --port 4205",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.4.2",
+    "@fleetbase/storefront-web-engine": "../storefront-web-engine",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
+    "autoprefixer": "^10.3.5",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.11.3",
@@ -34,11 +36,14 @@
     "ember-cli-app-version": "^5.0.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-dependency-checker": "^3.2.0",
+    "ember-cli-dotenv": "^3.1.0",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-inject-live-reload": "^2.1.0",
+    "ember-cli-postcss": "^7.0.2",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-data": "~3.28.0",
+    "ember-engines": "^0.8.19",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.1.1",
     "ember-load-initializers": "^2.1.2",
@@ -57,14 +62,20 @@
     "eslint-plugin-qunit": "^6.2.0",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
+    "postcss-import": "^14.0.2",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.2",
     "qunit": "^2.16.0",
-    "qunit-dom": "^1.6.0"
+    "qunit-dom": "^1.6.0",
+    "tailwindcss": "^2.2.15"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "postcss": "^8.3.7"
   }
 }

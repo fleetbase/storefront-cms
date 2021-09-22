@@ -4,9 +4,21 @@ import loadInitializers from 'ember-load-initializers';
 import config from 'storefront-cms/config/environment';
 
 export default class App extends Application {
-  modulePrefix = config.modulePrefix;
-  podModulePrefix = config.podModulePrefix;
-  Resolver = Resolver;
+    modulePrefix = config.modulePrefix;
+    podModulePrefix = config.podModulePrefix;
+    Resolver = Resolver;
+
+    constructor() {
+        super(...arguments);
+
+        this.engines = {
+            '@fleetbase/storefront-web-engine': {
+                dependencies: {
+                    services: ['store', 'router'],
+                },
+            },
+        };
+    }
 }
 
 loadInitializers(App, config.modulePrefix);
